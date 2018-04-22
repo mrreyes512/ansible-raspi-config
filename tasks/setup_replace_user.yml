@@ -3,10 +3,16 @@
 - name: Create user {{ raspi_config_replace_user['name'] }}
   user:
     name: "{{ raspi_config_replace_user['name'] }}"
+<<<<<<< HEAD
     shell: /bin/bash
   changed_when: True #to force handler call
   #notify:
     #- remove default user
+=======
+  changed_when: True #to force handler call
+  notify:
+    - remove default user
+>>>>>>> 81562ed953f900ecbff6696fff57a07e3df3ce3c
 
 - name: Add your login key to {{ raspi_config_replace_user['name'] }}
   authorized_key:

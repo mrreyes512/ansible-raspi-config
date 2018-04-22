@@ -1,6 +1,11 @@
 raspi-config
 =========
 
+<<<<<<< HEAD
+=======
+[![Ansible Role](https://img.shields.io/ansible/role/3964.svg?style=plastic)](https://galaxy.ansible.com/mikolak/raspi-config/) [![Ansible Role](https://img.shields.io/ansible/role/d/3964.svg?style=plastic)](https://galaxy.ansible.com/mikolak/raspi-config/)
+
+>>>>>>> 81562ed953f900ecbff6696fff57a07e3df3ce3c
 A configuration role for Raspbian-based Raspberry Pi machines. Provides the following features:
  - exposes and/or emulates those `raspi-config` options that are most relevant to headless servers (see _Rule Variables_),
  - allows to add user-specified settings to `/boot/config.txt` via the `raspi_config_other_options` variable,
@@ -97,4 +102,8 @@ Author Information
 Issues should be reported on the [project page](https://github.com/mikolak-net/ansible-raspi-config).
 
 Thanks to:
+<<<<<<< HEAD
  - [Colin Nolan](https://github.com/colin-nolan) for contributing reboot handler fixes.
+=======
+ - [Colin Nolan](https://github.com/colin-nolan) for contributing reboot handler fixes.
+>>>>>>> 81562ed953f900ecbff6696fff57a07e3df3ce3c
