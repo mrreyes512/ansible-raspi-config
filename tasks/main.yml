@@ -14,11 +14,7 @@
 - import_tasks: setup_replace_user.yml
   when: raspi_config_replace_user['name'] != None
 
-<<<<<<< HEAD
   #- import_tasks: security_check.yml
-=======
-- import_tasks: security_check.yml
->>>>>>> 81562ed953f900ecbff6696fff57a07e3df3ce3c
 
 - name: ensure filesystem is resized
   expand_fs:
