@@ -99,8 +99,4 @@ Author Information
 Issues should be reported on the [project page](https://github.com/mikolak-net/ansible-raspi-config).
 
 Thanks to:
-<<<<<<< HEAD
  - [Colin Nolan](https://github.com/colin-nolan) for contributing reboot handler fixes.
-=======
- - [Colin Nolan](https://github.com/colin-nolan) for contributing reboot handler fixes.
->>>>>>> 81562ed953f900ecbff6696fff57a07e3df3ce3c
