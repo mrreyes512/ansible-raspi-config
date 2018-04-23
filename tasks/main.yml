@@ -1,24 +1,34 @@
 ---
 
-- name: update all packages
+- name: Update All Packages
   apt:
     update_cache: yes
     upgrade: dist
   when: raspi_config_update_packages
+  tags: [fresh_raspi, always]
+
+- name: Install list of packages
+  apt: name={{ item }} state=present
+  when: raspi_config_required_packages
+  with_items: "{{ raspi_config_required_packages }}"
+  tags: [fresh_raspi, install_packages]
 
 - name: sets the timezone
   timezone:
     name: "{{ raspi_config_timezone }}"
   notify: restart timezone dependent services
+  tags: [fresh_raspi]
 
 - import_tasks: setup_replace_user.yml
   when: raspi_config_replace_user['name'] != None
+  tags: [fresh_raspi]
 
   #- import_tasks: security_check.yml
 
 - name: ensure filesystem is resized
   expand_fs:
   when: raspi_config_expanded_filesystem
+  tags: [fresh_raspi, always]
 
 - name: ensure mem split
   pi_boot_config:
@@ -26,6 +36,7 @@
   notify:
     - apply raspi-config
     - reboot
+  tags: [fresh_raspi]
 
 - name: ensure correct CPU parameters for Pi2
   ensure_pi2_oc:
@@ -35,9 +46,12 @@
   notify:
     - apply raspi-config
     - reboot
+  tags: [fresh_raspi]
 
 - name: set camera state
   import_tasks: camera.yml
+  tags: [fresh_raspi, camera]
+
 - name: set additional config vars
   pi_boot_config:
   args:
@@ -45,3 +59,4 @@
   notify:
     - apply raspi-config
     - reboot
+  tags: [fresh_raspi]
